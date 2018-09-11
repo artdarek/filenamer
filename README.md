@@ -41,12 +41,16 @@ import (
 )
 
 func main() {
-	fn := filenamer.New("test fil e.jpg")
+	fn := filenamer.New("test fil e.jpg") // original filename
 	
 	fn.CleanIt() // replaces whitespaces with _
+	fn.WithReplacement("test", "example") // will replace 'test' with 'example'
+
 	fn.WithRandomPrefix(10) // add random charset as a prefix to your file
 	fn.WithRandomSuffix(10) // add random charset as a suffix to your file	
+	
 	fn.SeparateWith("-") // set active separator for all feature modifications
+	
 	fn.WithTimestamp() // add timestamp prefix
 	fn.WithCustomPrefix("image") // add prefix to your filename	
 	fn.WithCustomSuffix("renamed") // add suffix to your filename
