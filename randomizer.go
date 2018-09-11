@@ -1,4 +1,4 @@
-package randomizer
+package filenamer
 
 import (
 	"math/rand"
@@ -12,7 +12,7 @@ type Randomizer struct {
 
 const defaultCharset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
-func New() Randomizer {
+func NewRandomizer() Randomizer {
 	var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
 	return Randomizer{seededRand, defaultCharset}
 }

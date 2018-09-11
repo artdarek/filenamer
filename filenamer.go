@@ -3,22 +3,20 @@ package filenamer
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"github.com/artdarek/go-filename/internal/filename"
-	"github.com/artdarek/go-filename/internal/randomizer"
 	"strings"
 	"time"
 )
 
 type Filenamer struct {
-	input  filename.Filename
-	output filename.Filename
+	input  Filename
+	output Filename
 	separator string
 }
 
 // Create new Filenamer instance
-func New(fileName string) Filenamer {
-	input := filename.New(fileName)
-	output := filename.New(fileName)
+func New(filename string) Filenamer {
+	input := NewFilename(filename)
+	output := NewFilename(filename)
 	return Filenamer{input: input, output: output, separator: "_"}
 }
 
@@ -93,6 +91,6 @@ func getMD5Hash(text string) string {
 
 // Get random string with charset with given length
 func getRandomStringWithCharset(length int) string {
-	r := randomizer.New()
+	r := NewRandomizer()
 	return r.Get(length)
 }

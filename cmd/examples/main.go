@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/artdarek/go-filename"
+	"github.com/artdarek/filenamer"
 )
 
 func main() {

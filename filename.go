@@ -1,4 +1,4 @@
-package filename
+package filenamer
 
 import (
 	"path/filepath"
@@ -10,7 +10,7 @@ type Filename struct {
 	extension string
 }
 
-func New(filename string) Filename {
+func NewFilename(filename string) Filename {
 	name, extension := getNameAndExtension(filename)
 	return Filename{name: name, extension: extension}
 }
