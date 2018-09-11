@@ -18,12 +18,12 @@ go get -u github.com/artdarek/go-filename
 package main
 
 import (
-	"github.com/artdarek/go-filename"
+	"github.com/artdarek/filenamer"
 	"fmt"
 )
 
 func main() {
-	fn := filename.New("test file.jpg")
+	fn := filenamer.New("test file.jpg")
 	fn.CleanIt()
 	
 	name := fn.Get()
@@ -36,12 +36,12 @@ func main() {
 package main
 
 import (
-	"github.com/artdarek/go-filename"
+	"github.com/artdarek/filenamer"
 	"fmt"
 )
 
 func main() {
-	fn := filename.New("test fil e.jpg")
+	fn := filenamer.New("test fil e.jpg")
 	
 	fn.CleanIt() // replaces whitespaces with _
 	fn.WithRandomPrefix(10) // add random charset as a prefix to your file
@@ -63,7 +63,7 @@ func main() {
 
 See some more examples in `cmd/examples/main.go`. You can test them in action by running following command: 
 
-```
+```shell
 go run cmd/examples/main.go
 ```
 
