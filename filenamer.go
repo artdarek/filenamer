@@ -73,8 +73,9 @@ func (fn *Filenamer) SeparateWith(separator string) {
 
 // Clean all undesired characters from filename
 func (fn *Filenamer) CleanIt() {
-	f := strings.Replace(fn.output.GetName(), " ",  fn.separator, -1)
-	fn.output.SetName(f)
+	fn.output.SetName( strings.Replace(fn.output.GetName(), " ",  fn.separator, -1) )
+	fn.output.SetName( strings.ToLower(fn.output.GetName()) )
+	fn.output.SetExtension( strings.ToLower(fn.output.GetExtension()) )
 }
 
 // Hash output filename
