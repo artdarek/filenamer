@@ -60,6 +60,12 @@ func (fn *Filenamer) WithExtensionRemoved() {
 	fn.output.SetExtension("")
 }
 
+// Replace part of a name with different string
+func (fn *Filenamer) WithReplacement(current string, target string) {
+	f := strings.Replace(fn.output.GetName(), current,  target, -1)
+	fn.output.SetName(f)
+}
+
 // Set active separator for all feature filename manipulations
 func (fn *Filenamer) SeparateWith(separator string) {
 	fn.separator = separator

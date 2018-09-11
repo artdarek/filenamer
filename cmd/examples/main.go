@@ -64,5 +64,6 @@ func main() {
 	fn = filenamer.New("test file.jpg")
 	fn.CleanIt()
 	fn.WithExtensionRemoved()
+	fn.WithReplacement("test","TEST")
 	fmt.Println(fn.Get())
 }
