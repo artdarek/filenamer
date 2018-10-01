@@ -27,27 +27,32 @@ func (fn *Filenamer) Get() string {
 
 // Add timestamp to filename
 func (fn *Filenamer) WithTimestamp() {
-	fn.output.SetName( fn.output.AddPrefix(getFormatedTimestamp(), fn.separator) )
+	fn.output.SetPrefix(getFormatedTimestamp(), fn.separator)
+	fn.output.SetName(fn.output.GetName())
 }
 
 // Add unique random string to filename
 func (fn *Filenamer) WithRandomPrefix(length int) {
-	fn.output.SetName( fn.output.AddPrefix(getRandomStringWithCharset(length), fn.separator) )
+	fn.output.SetPrefix(getRandomStringWithCharset(length), fn.separator)
+	fn.output.SetName(fn.output.GetName())
 }
 
 // Add unique random string to filename
 func (fn *Filenamer) WithRandomSuffix(length int) {
-	fn.output.SetName( fn.output.AddSuffix(getRandomStringWithCharset(length), fn.separator) )
+	fn.output.SetSuffix(getRandomStringWithCharset(length), fn.separator)
+	fn.output.SetName(fn.output.GetName())
 }
 
 // Add custom prefix to filename
 func (fn *Filenamer) WithCustomPrefix(prefix string) {
-	fn.output.SetName( fn.output.AddPrefix(prefix, fn.separator) )
+	fn.output.SetPrefix(prefix, fn.separator)
+	fn.output.SetName(fn.output.GetName())
 }
 
 // Add custom suffix to filename
 func (fn *Filenamer) WithCustomSuffix(suffix string) {
-	fn.output.SetName( fn.output.AddSuffix(suffix, fn.separator) )
+	fn.output.SetSuffix(suffix, fn.separator)
+	fn.output.SetName(fn.output.GetName())
 }
 
 // Add new extension

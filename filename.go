@@ -35,14 +35,14 @@ func (f *Filename) SetExtension(extension string) {
 	f.extension = extension
 }
 
-// Add string as prefix with given separator
-func (f *Filename) AddPrefix(text string, separator string) string {
-	return text + separator + f.GetName()
+// Set string as prefix with given separator
+func (f *Filename) SetPrefix(text string, separator string) {
+	f.name = text + separator + f.GetName()
 }
 
-// Add string as suffix with given separator
-func (f *Filename) AddSuffix(text string, separator string) string {
-	return f.GetName() + separator + text
+// Set string as suffix with given separator
+func (f *Filename) SetSuffix(text string, separator string) {
+	f.name = f.GetName() + separator + text
 }
 
 // Returns name and extension for given filename as separate strings
