@@ -1,3 +1,7 @@
+// Copyright 2019 Dariusz Przada. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+//
 // Package "Filenamer" provides a set of methods for filename manipulation.
 // It's a very simple API for adding custom prefixes and suffixes to your
 // base filename such as timestamps, random strings etc. Very useful when
