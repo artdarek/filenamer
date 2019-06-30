@@ -1,6 +1,7 @@
 package filenamer
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -104,3 +105,53 @@ func TestFilenamer_WithReplacement(t *testing.T) {
 		t.Error("Expected dirname.jpg")
 	}
 }
+
+// This example shows basic usage when given file name is just cleaned up from
+// characters that should not be used in general
+func Example_example1() {
+	source := "test FiLe.jpg"
+	fn := New(source)
+	fn.CleanIt()
+	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	// Output: test_file.jpg
+}
+
+// This example shows how to add prefix to a file name
+func Example_example2() {
+	source := "test FiLe.JPG"
+	fn := New(source)
+	fn.CleanIt()
+	fn.WithCustomPrefix("00001")
+	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	// Output: 00001_test_file.jpg
+}
+
+// This example shows how to hash file name
+func Example_example3() {
+	source := "test FiLe.JPG"
+	fn := New(source)
+	fn.CleanIt()
+	fn.WithCustomPrefix("00001")
+	fn.HashIt()
+	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	// Output: b39483abd82c1fcc3f76616b324ea8d6.jpg
+}
+
+// This example shows how to hash file name and add suffix to it
+func Example_example4() {
+	source := "test FiLe.JPG"
+	fn := New(source)
+	fn.CleanIt()
+	fn.WithCustomPrefix("00001")
+	fn.HashIt()
+	fn.WithCustomSuffix("00002")
+	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	// Output: b39483abd82c1fcc3f76616b324ea8d6_00002.jpg
+}
+
+// This example shows how to create new instance of Filenamer
+func ExampleNew() {
+	source := "test.jpg"
+	fn := New(source)
+}
+

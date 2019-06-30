@@ -1,12 +1,17 @@
 // Copyright 2019 Dariusz Przada. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-//
-// Package "Filenamer" provides a set of methods for filename manipulation.
+
+// Package Filenamer provides a set of methods for filename manipulation.
 // It's a very simple API for adding custom prefixes and suffixes to your
 // base filename such as timestamps, random strings etc. Very useful when
 // working with file uploads and you need to genereate unique filenames
 // for your uploads.
+//
+// Basic usage example
+//
+//	source := "filename.jpg"
+//	fn := filenamer.New(source)
 package filenamer
 
 import (
