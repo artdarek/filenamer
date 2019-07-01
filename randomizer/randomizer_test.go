@@ -1,6 +1,8 @@
 package randomizer
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestRandomizer_Get(t *testing.T) {
 	rnd := New()

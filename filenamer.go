@@ -10,7 +10,9 @@
 //
 // Basic usage example
 //
+//	// file name
 //	source := "filename.jpg"
+//	// create new filenamer instance
 //	fn := filenamer.New(source)
 package filenamer
 

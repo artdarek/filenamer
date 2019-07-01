@@ -112,7 +112,7 @@ func Example_example1() {
 	source := "test FiLe.jpg"
 	fn := New(source)
 	fn.CleanIt()
-	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	fmt.Println(fn.Get())
 	// Output: test_file.jpg
 }
 
@@ -122,7 +122,7 @@ func Example_example2() {
 	fn := New(source)
 	fn.CleanIt()
 	fn.WithCustomPrefix("00001")
-	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	fmt.Println(fn.Get())
 	// Output: 00001_test_file.jpg
 }
 
@@ -133,7 +133,7 @@ func Example_example3() {
 	fn.CleanIt()
 	fn.WithCustomPrefix("00001")
 	fn.HashIt()
-	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	fmt.Println(fn.Get())
 	// Output: b39483abd82c1fcc3f76616b324ea8d6.jpg
 }
 
@@ -145,13 +145,12 @@ func Example_example4() {
 	fn.WithCustomPrefix("00001")
 	fn.HashIt()
 	fn.WithCustomSuffix("00002")
-	fmt.Println(fmt.Sprintf("%s -> %s", source, fn.Get()))
+	fmt.Println(fn.Get())
 	// Output: b39483abd82c1fcc3f76616b324ea8d6_00002.jpg
 }
 
 // This example shows how to create new instance of Filenamer
 func ExampleNew() {
 	source := "test.jpg"
-	fn := New(source)
+	New(source)
 }
-
